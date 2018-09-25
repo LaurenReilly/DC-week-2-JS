@@ -45,7 +45,6 @@ function splitAmount(bill, service, people) {
     }
 }
 
-
 //Print Numbers for loop
 function printNumbers(start, end) {
     if (start > end) {
@@ -78,5 +77,29 @@ function printNumbersWhile(start, end) {
         console.log("Numbers must be different!");
     }
 }
+
+//Print a Square
+function printSquare(size) {
+    var string = "*";
+    for (var i = 0; i < size; i++) {
+        console.log(string.repeat(size));
+    }
+}
+
+//Print a Box
+function printBox(width, height) {
+    var string = "*";
+    var space = " ";
+    if (width === 1 || height === 1) {
+        console.log("Choose values greater than 1!");
+    } else {
+    console.log(string.repeat(width));
+    for (var i = 0; i < height - 2 ; i++) {
+        console.log(`${string}${space.repeat(width - 2)}${string}`)
+    }
+    console.log(string.repeat(width));
+    }
+}
+
 
 
