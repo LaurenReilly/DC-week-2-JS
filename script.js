@@ -101,5 +101,25 @@ function printBox(width, height) {
     }
 }
 
+//Print a Banner
+function printBanner(text) {
+    var string = "*";
+    var chars = text.length;
+    console.log(string.repeat(chars + 2));
+    console.log(`${string}${text}${string}`);
+    console.log(string.repeat(chars + 2));
+}
+
+//Factor a number
+
+function factors(num) {
+    var factorsArray = [];
+    for (var i = 1; i <= num; i++) {
+        if (num % i === 0) {
+            factorsArray.push(i);
+        }
+    }
+    console.log(factorsArray);
+}
 
 
