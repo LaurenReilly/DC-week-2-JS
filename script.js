@@ -111,7 +111,6 @@ function printBanner(text) {
 }
 
 //Factor a number
-
 function factors(num) {
     var factorsArray = [];
     for (var i = 1; i <= num; i++) {
@@ -122,4 +121,27 @@ function factors(num) {
     console.log(factorsArray);
 }
 
+//caesar ciphers
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+function caesarCipher (array, offset) {
+    var cipher = {};
+    for (var i = 0; i < array.length; i++) {
+        var letter = array[i];
+        if (i + offset >= 26) {
+            cipher[((i + offset) - 26)] = letter;
+        } else {
+            cipher[i + offset] = letter;
+        }
+    }
+    // for (var i=0; i < text.length; i++) {
+    //     var textLetter = text[i];
+    // }
+    console.log(cipher);
+}
+
+caesarCipher(alphabet, 3);
+caesarCipher(alphabet, 0);
+
+// array[i] =
 
