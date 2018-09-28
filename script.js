@@ -167,36 +167,18 @@ function leetspeak(string) {
 
 //Long long vowels
 function longLongVowels(string) {
-    var stringArray = Array.from(string);
-    for (var i = 0; i < string.length; i++) {
-        if (string[i] == string[i+1]){
-            var letter = string[i];
-            stringArray.splice(i, 0, letter.repeat(3));
-        }
-    }
-    console.log(stringArray.join(""));
-    return stringArray.join("");
-}
-
-function again(string) {
-    var text = string;
     var newText = "";
     for(var i = 0; i < string.length; i++){
-        if (string[i] == string[i+1]){
+        if (!(string[i] == string[i + 1])) {
+            newText += string[i];
+        }
+        else if (string[i] == string[i + 1]){
             var letter = string[i];
-            var firstChar = string.indexOf(letter);
-            newText = (text.slice(0, firstChar) + letter.repeat(3) + text.slice(firstChar));
+            newText += letter.repeat(4);
         }
     }
     console.log(newText);
+    return(newText);
 }
-   
-
-// longLongVowels("cheese");
-again("cheese");
-again("rootcellar");
-
-//if index [i+1] of letter is the same as index[i]
-
 
 
