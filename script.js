@@ -122,26 +122,51 @@ function factors(num) {
 }
 
 //caesar ciphers
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var text = "quid facis canis."
 
-function caesarCipher (array, offset) {
-    var cipher = {};
-    for (var i = 0; i < array.length; i++) {
-        var letter = array[i];
-        if (i + offset >= 26) {
-            cipher[((i + offset) - 26)] = letter;
-        } else {
-            cipher[i + offset] = letter;
-        }
+    function cipher(string, offset) {
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var message = "";
+        for (var i = 0; i < string.length; i++) {
+            var index = alphabet.indexOf(string[i]);
+            if ((index + offset) >= 26) {
+                message += alphabet[(index + offset) -26];
+            } else if (index + offset < 26 && index + offset > 0) {
+                message += alphabet[(index + offset)];
+            } else {
+                message += string[i];
+            }
     }
-    // for (var i=0; i < text.length; i++) {
-    //     var textLetter = text[i];
-    // }
-    console.log(cipher);
+    console.log(message);
+    return message;
 }
 
-caesarCipher(alphabet, 3);
-caesarCipher(alphabet, 0);
+//leetspeak
+function leetspeak(string) {
+    var leet = {
+        a: 4,
+        e: 3,
+        g: 6,
+        i: 1,
+        o: 0,
+        s: 5,
+        t: 7
+    }
+    var leetArray = Object.keys(leet);
+    var leetSpeak = "";
+    for (var i = 0; i < string.length; i++) {
+        var letter = string[i];
+        console.log(letter);
+        if (leetArray.indexOf(letter) == -1) {
+            leetSpeak += letter;
+        } else if (leetArray.indexOf(letter)) {
+            leetSpeak += leet[letter];
+        }
+    }
+    console.log(leetSpeak);
+}
 
-// array[i] =
+leetspeak("hello ghost");
+
+
 
