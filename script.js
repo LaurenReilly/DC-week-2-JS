@@ -181,4 +181,16 @@ function longLongVowels(string) {
     return(newText);
 }
 
+//Sum the numbers
+var numbers = [1, 2, 3, 4, 5];
 
+function sumNumbers(array) {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        var number = array[i];
+        sum += number;
+    }
+    return sum;
+}
+
+sumNumbers(numbers);
