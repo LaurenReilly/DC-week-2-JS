@@ -137,7 +137,6 @@ var text = "quid facis canis."
                 message += string[i];
             }
     }
-    console.log(message);
     return message;
 }
 
@@ -193,4 +192,53 @@ function sumNumbers(array) {
     return sum;
 }
 
-sumNumbers(numbers);
+
+//Just the positives
+var posNumbers = [-1, -2, -3, 1, 2, 3];
+
+function positiveNumbers(array) {
+    var positives = [];
+    for (var i =0; i < array.length; i++) {
+        var number = array[i];
+        if (number > 0) {
+            positives.push(number);
+        }
+    }
+    return positives;
+}
+
+//tic tac toe
+var array = [
+    ["X", null, "X"],
+    ["X", "O", null],
+    ["X", "O", "O"]
+]
+//eight ways to win (3 rows, 3 columns, 2 diagonals)
+//join them together to make string if OOO, or XXX then wins
+function ticTacToe(board) {
+    var winConditions = [
+        board[0][0] + board[0][1] +board[0][2], //row1
+        board[1][0] + board[1][1] +board[1][2], //row2
+        board[2][0] + board[2][1] +board[2][2], //row3
+        board[0][0] + board[1][0] +board[2][0], //col1
+        board[0][1] + board[1][1] +board[2][1], //col2
+        board[0][2] + board[1][2] +board[2][2], //col3
+        board[0][0] + board[1][1] +board[2][2], //diag1
+        board[2][0] + board[1][1] +board[0][2] //diag2
+    ];
+    for (var i = 0; i < winConditions.length; i++) {
+        var winCondition = winConditions[i];
+        if (winCondition == "XXX") {
+            console.log("X");
+            return "X";
+        } else if (winCondition == "OOO") {
+            console.log("O");
+            return "O";
+        }
+    }
+    //if we put in for loop it could exit out after first line w/o a win.
+    //if we put outside for loop the only way we get here is if we went
+    //all the way through the for loop and never hit a win condition
+    return null;
+}
+ ticTacToe(array);
